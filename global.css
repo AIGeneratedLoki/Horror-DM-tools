@@ -1,0 +1,32 @@
+---- a/src/App.js
+@font-face {
+  font-family: 'HorrorFont';
+  /* Make sure you have a font file in public/assets/fonts/ */
+  src: url('/assets/fonts/HorrorFont.ttf'); /* Example path, replace with your actual font file */
+}
+
+
+:root {
+  --primary-red: #8B0000; /* Deep, dark red */
+  --neon-red: #FF0000;
+  --dark-bg: #121212;
+  --text-light: #E0E0E0;
+  --vhs-glitch-lines: rgba(255, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  font-family: 'HorrorFont', 'Courier New', Courier, monospace;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  overflow-x: hidden; /* Prevent horizontal scroll from glitch effects */
+}
+
+a {
+  color: var(--neon-red);
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
