@@ -1,5 +1,5 @@
 function HomePage() {
-  return <div>Hello, world! Welcome to my site.</div>;
+  return <div>index.tsx</div>;
 }
 
 export default HomePage;
