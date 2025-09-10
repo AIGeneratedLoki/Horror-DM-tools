@@ -1,0 +1,12 @@
+/* Inside styles/Home.module.css */
+.container {
+  padding: 2rem;
+  background-color: #1a1a1a;
+  color: white;
+  min-height: 100vh;
+}
+
+.title {
+  color: #ff4141;
+  font-size: 3rem;
+}
