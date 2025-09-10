@@ -4,9 +4,11 @@
   background-color: #1a1a1a;
   color: white;
   min-height: 100vh;
+  font-family: sans-serif;
 }
 
 .title {
   color: #ff4141;
   font-size: 3rem;
+  margin-bottom: 2rem;
 }
