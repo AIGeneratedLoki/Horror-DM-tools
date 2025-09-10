@@ -1,0 +1,288 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 12%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 100% 27.5%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 128 100% 51.2%;
+    --accent-foreground: 128 100% 10%;
+    --destructive: 0 100% 27.5%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 128 100% 51.2%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: url('https://i.imgur.com/K5PhmcT.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .flicker {
+    animation: flicker 1.5s infinite alternate;
+  }
+  .bleeding-btn {
+    @apply transition-shadow duration-300;
+  }
+  .bleeding-btn:hover {
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.7);
+  }
+  
+  input,
+  textarea {
+    @apply bg-card;
+  }
+}
+
+@layer components {
+  .glitch {
+    position: relative;
+    color: hsl(var(--accent));
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 hsl(var(--primary));
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+  .glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 hsl(var(--accent)), 2px 2px hsl(var(--primary));
+    clip: rect(85px, 450px, 140px, 0);
+    animation: glitch-anim-2 1s infinite linear alternate-reverse;
+  }
+  
+  .card {
+    @apply bg-card/80 backdrop-blur-sm;
+  }
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 4px hsl(var(--accent)),
+      0 0 11px hsl(var(--accent));
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skewX(0deg);
+  }
+  10% {
+    transform: skewX(3deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  30% {
+    transform: skewX(-2deg);
+  }
+  40% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(32px, 9999px, 87px, 0);
+    transform: skew(0.3deg);
+  }
+  5% {
+    clip: rect(59px, 9999px, 82px, 0);
+  }
+  10% {
+    clip: rect(25px, 9999px, 75px, 0);
+  }
+  15% {
+    clip: rect(62px, 9999px, 19px, 0);
+  }
+  20% {
+    clip: rect(39px, 9999px, 55px, 0);
+  }
+  25% {
+    clip: rect(18px, 9999px, 98px, 0);
+  }
+  30% {
+    clip: rect(88px, 9999px, 22px, 0);
+  }
+  35% {
+    clip: rect(69px, 9999px, 80px, 0);
+  }
+  40% {
+    clip: rect(28px, 9999px, 78px, 0);
+  }
+  45% {
+    clip: rect(42px, 9999px, 91px, 0);
+  }
+  50% {
+    clip: rect(98px, 9999px, 43px, 0);
+  }
+  55% {
+    clip: rect(1px, 9999px, 66px, 0);
+  }
+  60% {
+    clip: rect(77px, 9999px, 83px, 0);
+  }
+  65% {
+    clip: rect(34px, 9999px, 9px, 0);
+  }
+  70% {
+    clip: rect(49px, 9999px, 81px, 0);
+  }
+  75% {
+    clip: rect(23px, 9999px, 99px, 0);
+  }
+  80% {
+    clip: rect(93px, 9999px, 15px, 0);
+  }
+  85% {
+    clip: rect(52px, 9999px, 85px, 0);
+  }
+  90% {
+    clip: rect(5px, 9999px, 70px, 0);
+  }
+  95% {
+    clip: rect(74px, 9999px, 37px, 0);
+  }
+  100% {
+    clip: rect(19px, 9999px, 94px, 0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(69px, 9999px, 98px, 0);
+    transform: skew(0.2deg);
+  }
+  5% {
+    clip: rect(8px, 9999px, 63px, 0);
+  }
+  10% {
+    clip: rect(75px, 9999px, 3px, 0);
+  }
+  15% {
+    clip: rect(13px, 9999px, 86px, 0);
+  }
+  20% {
+    clip: rect(89px, 9999px, 41px, 0);
+  }
+  25% {
+    clip: rect(54px, 9999px, 94px, 0);
+  }
+  30% {
+    clip: rect(34px, 9999px, 1px, 0);
+  }
+  35% {
+    clip: rect(81px, 9999px, 85px, 0);
+  }
+  40% {
+    clip: rect(14px, 9999px, 48px, 0);
+  }
+  45% {
+    clip: rect(67px, 9999px, 83px, 0);
+  }
+  50% {
+    clip: rect(27px, 9999px, 65px, 0);
+  }
+  55% {
+    clip: rect(92px, 9999px, 5px, 0);
+  }
+  60% {
+    clip: rect(58px, 9999px, 73px, 0);
+  }
+  65% {
+    clip: rect(8px, 9999px, 93px, 0);
+  }
+  70% {
+    clip: rect(51px, 9999px, 80px, 0);
+  }
+  75% {
+    clip: rect(3px, 9999px, 82px, 0);
+  }
+  80% {
+    clip: rect(84px, 9999px, 2px, 0);
+  }
+  85% {
+    clip: rect(58px, 9999px, 76px, 0);
+  }
+  90% {
+    clip: rect(41px, 9999px, 6px, 0);
+  }
+  95% {
+    clip: rect(66px, 9999px, 56px, 0);
+  }
+  100% {
+    clip: rect(25px, 9999px, 73px, 0);
+  }
+}
