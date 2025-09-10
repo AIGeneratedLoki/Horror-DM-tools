@@ -1,0 +1,36 @@
+/* Inside styles/Home.module.css */
+
+/* 
+  It's a good practice to define theme colors and spacing as CSS variables 
+  for consistency and easier maintenance. You can place these in a global
+  CSS file or at the top of your module if they are component-specific.
+  For this example, we'll assume they could be in a global file, but we'll
+  use them here.
+
+  :root {
+    --primary-text-color: #ffffff;
+    --background-color: #1a1a1a;
+    --accent-color: #ff4141;
+    --spacing-medium: 2rem;
+    --font-size-large: 3rem;
+  }
+*/
+
+.container {
+  padding: 2rem;
+  background-color: #1a1a1a; /* or var(--background-color) */
+  color: #ffffff; /* or var(--primary-text-color) */
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: #ff4141; /* or var(--accent-color) */
+  font-size: 3rem; /* or var(--font-size-large) */
+  margin-bottom: 2rem; /* or var(--spacing-medium) */
+  text-align: center;
+}
